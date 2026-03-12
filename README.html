@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корисні копалини Смілянщини</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f2f8f5',
+                            100: '#e1efe6',
+                            200: '#c3dfce',
+                            300: '#96c5aa',
+                            400: '#64a481',
+                            500: '#428864',
+                            600: '#306b4d',
+                            700: '#27563f',
+                            800: '#214533',
+                            900: '#1c392b',
+                        },
+                        earth: {
+                            100: '#f5f0e6',
+                            500: '#b89862',
+                            800: '#614d33',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(28, 57, 43, 0.85), rgba(48, 107, 77, 0.7)), url('https://images.unsplash.com/photo-1518012624326-8094896eb7eb?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i data-lucide="gem" class="h-8 w-8 text-brand-600"></i>
+                    <span class="font-heading font-bold text-2xl text-gray-900 tracking-tight">Надра<span class="text-brand-600">Сміли</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Про регіон</a>
+                    <a href="#soils" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Ґрунти</a>
+                    <a href="#titanium" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Титан</a>
+                    <a href="#minerals" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Інші копалини</a>
+                    <a href="#map" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Географія</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-600 focus:outline-none">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md font-medium">Про регіон</a>
+                <a href="#soils" class="block px-3 py-2 text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md font-medium">Ґрунти</a>
+                <a href="#titanium" class="block px-3 py-2 text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md font-medium">Титан</a>
+                <a href="#minerals" class="block px-3 py-2 text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md font-medium">Інші копалини</a>
+                <a href="#map" class="block px-3 py-2 text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md font-medium">Географія</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen min-h-[600px] flex items-center justify-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-500/20 text-brand-100 backdrop-blur-md text-sm font-semibold tracking-wider uppercase mb-6 border border-brand-400/30">
+                Черкаська область
+            </span>
+            <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+                Скарби нашої землі: <br/> <span class="text-earth-100">Надра та ґрунти Сміли</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-200 font-light drop-shadow">
+                Від родючих чорноземів до унікальних титанових руд. Дізнайтеся більше про все найцінніше, що приховує земля Смілянського краю.
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#titanium" class="px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white rounded-xl font-medium shadow-lg hover:shadow-brand-500/30 transition-all flex items-center gap-2">
+                    Дізнатись більше <i data-lucide="arrow-down" class="h-5 w-5"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+            <i data-lucide="chevron-down" class="h-10 w-10 text-white/70"></i>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 ga
